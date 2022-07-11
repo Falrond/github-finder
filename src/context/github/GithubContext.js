@@ -4,7 +4,9 @@ import { createContext, useState } from "react";
 const GithubContext = createContext();
 
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
-const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN2;
+console.log(GITHUB_URL);
+console.log(GITHUB_TOKEN);
 
 export const GithubProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
@@ -17,6 +19,7 @@ export const GithubProvider = ({ children }) => {
       },
     });
     const data = await response.json();
+    console.log(data);
     setUsers(data);
     setLoading(false);
   };
